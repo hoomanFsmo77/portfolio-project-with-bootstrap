@@ -1,0 +1,341 @@
+//////////////////// variables and functions/////////////////////////
+@import "Additional SASS files/Variables";
+@import "Additional SASS files/Functions";
+  /////////////////////// utility classes /////////////////
+*{
+  font-family: 'Cairo', sans-serif;
+}
+li{
+  list-style-type: none;
+}
+ul{
+  @include padding(0);
+}
+a{
+  text-decoration: none;
+  color: $OrangeColor1;
+  @include linkEffect;
+}
+
+body{
+  @include displayGrid(200px auto,unset,'sidebar main-content');
+  background: $DarkColor2;
+  @include query{
+    grid-template-areas:
+            'sidebar'
+            'main-content'
+    ;
+    grid-template-columns: 1fr;
+  }
+}
+
+.text-orange{
+  color: $OrangeColor1!important;
+}
+.text-red{
+  color: $RedColor!important;
+}
+.text-green{
+  color: $GreenColor1;
+}
+.text-dark{
+  color: $DarkColor1!important;
+}
+.bg-dark-1{
+  background: $DarkColor1;
+}
+.bg-dark-2{
+  background: $DarkColor2;
+}
+.accordion-collapse{
+  background-color: $DarkColor2;
+}
+.accordion-button:not(.collapsed){
+  color: $DarkColor2;
+}
+.card-header{
+  font-size: 1.5rem!important;
+}
+/*/////////////////////////////// sidebar /////////////////////////////*/
+#sidebar {
+  .copyright{
+    font-size: 0.8rem;
+  }
+  height: 100vh;
+  grid-area: sidebar;
+  @include displayFlex(column,start,unset);
+  @include borderRight(1px solid #545454);
+  position: sticky;
+  top: 0;
+  @include query{
+    flex-direction: column!important;
+    height: auto;
+    position: static;
+  }
+}
+#sidebar{
+  .information{
+    @include borderBottom(1px solid #efefef);
+    @include query{
+      flex-direction: row!important;
+      gap:1rem
+    }
+  }
+  .information-nav{
+    @include query{
+      flex-direction: row!important;
+    }
+  }
+}
+
+.name{
+  @include fontSize(6rem);
+  text-shadow: $textShadow;
+}
+#sidebar .information-nav ul{
+  width: 100%;
+}
+#sidebar .information-nav ul li{
+  text-align: center;
+  cursor: pointer;
+  @include padding(1rem 0.3rem);
+  @include borderBottom(1px solid black);
+  @include liEffect;
+}
+#sidebar .information-nav ul li.active{
+  box-shadow: $boxShadow;
+}
+#sidebar .information-nav .social-media-icons i{
+  @include fontSize(1.5rem);
+  @include mr(0.9rem);
+  cursor: pointer;
+}
+/*///////////////////////////////// main content ////////////////////////////*/
+#main-content{
+  grid-area: main-content;
+  #job-title{
+    span{
+      font-size: 2rem!important;
+    }
+  }
+}
+#tab-2,#tab-3,#tab-4,#tab-5{
+  display: none;
+}
+/*////////////////////////////////// tab 1 /////////////////////////////////////*/
+#tab-1{
+  background: url(../images/1.png) no-repeat center center/cover;
+  height: 100vh;
+  .container h1,.container span{
+    @include fontSize(7rem);
+  }
+  .container h4{
+    color: #ccc;
+  }
+}
+#tab-1 .container h1,#tab-1 .container span{
+  @include query{
+    font-size: 4rem!important;
+  }
+}
+/*//////////////////////////////////// tab 2 ////////////////////////////////////*/
+#tab-2 .container{
+  @include displayGrid(1fr 2fr,unset,'left right');
+  @include query{
+    grid-template-areas:
+        'left'
+        'right'
+  ;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .left{
+    grid-area: left;
+    @include displayFlex(column,center,center);
+    background: $GreenColor2;
+    @include borderRadius($borderRadius);
+    @include padding(0.5rem);
+    @include query{
+      justify-content: center;
+      align-items: center;
+    }
+    dt{
+      color: $DarkColor2;
+      font-weight: bold;
+      @include borderBottom(1px solid $DarkColor2);
+    }
+    dd{
+      color: $BlueColor2;
+      font-weight: bold;
+      @include pl(2rem);
+    }
+    img{
+      @include borderRadius(50%);
+    }
+
+  }
+  .right{
+    grid-area: right;
+    background-color: $BlueColor1;
+    @include ml(0.5rem);
+    @include borderRadius($borderRadius);
+    @include padding(0.5rem);
+    @include query{
+      margin: 0;
+    }
+  }
+
+}
+#tab-2 .container .right p{
+  display: inline-flex;
+  @include margin(0);
+  align-items: center;
+  text-align: justify;
+  span{
+    @include fontSize(7rem);
+  }
+}
+/////////////////////////// tab 3 /////////////////////////
+#tab-3 .container{
+  .accordion-body, .accordion-body{
+    color:$OrangeColor1 !important;
+  }
+  @include padding(3rem);
+  @include query{
+    padding: 3rem 0.5rem!important;
+  }
+}
+.accordion{
+  width: 75%;
+  @include query{
+    width: 100%;
+  }
+}
+                          //network
+#tab-3 .network_courses{
+  background-color: $BlueColor2;
+  @include borderRadius($borderRadius);
+  .accordion-button{
+    background-color:$GreenColor3 !important;
+  }
+}
+                            //web
+#tab-3 .web_courses{
+  background-color: $GreenColor2;
+  @include borderRadius($borderRadius);
+  .accordion-button{
+    background-color:$GreenColor4 !important;
+    color: $GreenColor2;
+  }
+}
+
+                            //language
+#tab-3 .languages{
+  background-color: $RedColor;
+  @include borderRadius($borderRadius);
+  h1{
+    color: $DarkColor2;
+  }
+  .accordion-button{
+    background-color:$GreenColor5 !important;
+    color: $GreenColor2;
+  }
+}
+/////////////////////////// tab 4 ///////////////////////
+#tab-4 .container{
+  @include displayGrid(1fr,unset,'project_nav''content_nav');
+  justify-content: center;
+  align-items: start;
+  padding: 3rem;
+  @include query{
+    padding: 1rem 1rem;
+  }
+
+
+}
+#tab-4 .content_nav{
+  grid-area: content_nav;
+}
+#tab-4 .projects_nav{
+  grid-area: project_nav;
+  background-color:$BlueColor3 ;
+  @include borderRadius(7px);
+  ul{
+    @include displayFlex(row,space-between,center);
+    @include query{
+      flex-direction: column!important;
+    }
+    @include padding(0.5rem);
+    line-height: 2;
+  }
+  li{
+    padding: 0.2rem;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    margin-right: 0.5rem;
+    @include fontSize(1.2rem);
+    @include query{
+      @include fontSize(1rem);
+      margin-bottom: 0.8rem;
+    }
+    &:hover{
+      background-color: $GreenColor1;
+      color: $RedColor;
+      border-radius: 6px;
+    }
+  }
+}
+
+#tab-4 li.active{
+  color: $RedColor;
+}
+#tab-4 li.active:before{
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  background: $GreenColor1;
+  border-radius: 6px;
+  padding: 0.2rem;
+  z-index: -1;
+  left: 0;
+}
+.content_nav section{
+  background-color: $GreenColor3;
+  margin-top: 1rem;
+  padding: 1rem;
+  @include query{
+    margin-top: 2rem;
+  }
+  @include borderRadius(7px);
+  &:not(:first-child){
+    display: none;
+  }
+}
+///////////////////////// tab 5////////////////////
+
+#tab-5 .container {
+  padding: 3rem;
+  @include query{
+    padding: 2rem 1rem 0.5rem 1rem;
+  }
+  .form{
+    width: 60%;
+    background-color: $GreenColor2;
+    padding: 1rem;
+    @include borderRadius(10px);
+    @include query{
+      width: 100%;
+    }
+  }
+
+}
+
+.spinner-border{
+  display: none;
+}

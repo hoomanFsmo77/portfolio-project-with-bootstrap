@@ -1,0 +1,20 @@
+{
+  "name": "about-me-page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "main": "sass --watch public/css/style.scss:public/css/style.css"
+  },
+  "author": "hooman",
+  "license": "MIT",
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "bootstrap": "^5.2.0",
+    "bootstrap-icons": "^1.9.1",
+    "jquery": "^3.6.0",
+    "typeit": "^8.7.0",
+    "wow.js": "^1.2.2"
+  }
+}

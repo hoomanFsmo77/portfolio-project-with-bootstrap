@@ -1,0 +1,86 @@
+@import "Variables";
+
+@mixin borderRadius($size){
+  border-radius:$size ;
+}
+/////////////////////// font size
+@mixin fontSize($fontSize){
+  font-size: $fontSize;
+}
+//////////////////////// border
+@mixin borderRight($br){
+  border-right: $br;
+}
+@mixin borderBottom($br){
+  border-bottom: $br;
+}
+@mixin borderTop($br){
+  border-top: $br;
+}
+@mixin borderLeft($br){
+  border-left: $br;
+}
+/////////////////////// margin
+@mixin margin($m){
+  margin: $m;
+}
+@mixin mt($mt){
+  margin-top: $mt;
+}
+@mixin mb($mb){
+  margin-bottom: $mb;
+}
+@mixin mr($mr){
+  margin-right: $mr;
+}
+@mixin ml($ml){
+  margin-left: $ml;
+}
+////////////////////// padding
+@mixin padding($p){
+  padding: $p;
+}
+@mixin pt($pt){
+  padding-top: $pt;
+}
+@mixin pb($pb){
+  padding-bottom: $pb;
+}
+@mixin pr($pr){
+  padding-right: $pr;
+}
+@mixin pl($pl){
+  padding-left: $pl;
+}
+
+/////////////////////// display
+@mixin displayFlex($direction,$justify , $align){
+  display: flex;
+  flex-direction: $direction;
+  justify-content:$justify ;
+  align-items: $align ;
+}
+@mixin displayGrid($column,$row,$area){
+  display: grid;
+  grid-template-columns: $column;
+  grid-template-rows: $row;
+  grid-template-areas: $area;
+}
+///////////////////// li hover
+@mixin liEffect{
+  &:hover{
+    box-shadow: $boxShadow;
+  }
+}
+///////////////////// a hover
+@mixin linkEffect{
+  &:hover{
+    color: $OrangeColor1;
+  }
+}
+///////////////////// media query
+@mixin query{
+  @media (max-width:$mobileQuery) {
+    @content;
+  }
+}
